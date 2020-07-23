@@ -1,13 +1,7 @@
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils import GenerateLinks,ListNode
 
 
-
-
-class Solution:
+class MySolution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         
         ans = ListNode(val=0)  #dummynode
@@ -30,19 +24,29 @@ class Solution:
                 
         return ans.next
 
+class FastestSolution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        carry = 0
+        dummy = ListNode()
+        cur = dummy
+        while l1 or l2:
+            new = carry
+            if l1:
+                new += l1.val
+                l1 = l1.next
+            if l2:
+                new += l2.val
+                l2 = l2.next
+            carry = new // 10
+            cur.next = ListNode(new % 10)
+            cur = cur.next
+        if carry > 0:
+            cur.next = ListNode(carry)
+        return dummy.next
 
 
-'''Testing'''
-def GenerateLinks(x):
-    link = ListNode(x[0],next=None)
-    current_link = link
-    for i in x[1:]:
-        current_link.next = ListNode(i,next=None)
-        current_link = current_link.next
-        
-    return link
 
 a = GenerateLinks([2,4,3])
 b= GenerateLinks([5,6,4])
 
-Solution().addTwoNumbers(a,b)
+MySolution().addTwoNumbers(a,b)
