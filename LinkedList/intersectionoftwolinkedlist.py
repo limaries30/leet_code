@@ -23,11 +23,11 @@ class Solution:
                 headA = nextA
                 headB = nextB
 
-        def UpdateNode(self,head:ListNode)->ListNode:
-            '''방문체크,None이면 그대로 return'''
-            if head is not None:
-                head.visited = True
-                head = head.next
-            return head
+    def UpdateNode(self,head:ListNode)->ListNode:
+        '''방문체크,None이면 그대로 return'''
+        if head is not None:
+            head.visited = True
+            head = head.next
+        return head
 
                 
