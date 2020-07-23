@@ -22,14 +22,12 @@ class Solution:
             else:
                 headA = nextA
                 headB = nextB
-                
-    def UpdateNode(self,head:ListNode)->ListNode:
-        
-        if head is not None:
-            nextNode = head.next
-            head.visited = True
-        else:
-            nextNode = None
-            
-        return nextNode
+
+        def UpdateNode(self,head:ListNode)->ListNode:
+            '''방문체크,None이면 그대로 return'''
+            if head is not None:
+                head.visited = True
+                head = head.next
+            return head
+
                 
