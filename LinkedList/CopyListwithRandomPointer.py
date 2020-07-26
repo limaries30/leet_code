@@ -76,7 +76,6 @@ class Solution:
             
         #Nextpointer 변경
         ClonedStartHead = StartHead.next
-        
         while ClonedStartHead is not None:
             if ClonedStartHead.next is not None:
                 ClonedStartHead.next = ClonedStartHead.next.next
