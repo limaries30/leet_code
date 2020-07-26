@@ -45,3 +45,42 @@ class Solution:
                     NewNode.random = x.random.cloned
 
         return x.cloned
+
+
+    
+class Solution:
+    
+    def copyRandomList(self, head: 'Node') -> 'Node':
+        
+        StartHead = head
+        
+        if head is None:
+            return None
+        
+        #복제하기
+        while head is not None:
+            NextHead = Node(x=head.val)
+            original_next = head.next
+            NextHead.next = original_next
+            head.next = NextHead
+            head = original_next
+        
+        #Random pointer 변경
+        RandomStartHead = StartHead
+        while RandomStartHead is not None:
+            if RandomStartHead.random is not None:
+                RandomStartHead.next.random = RandomStartHead.random.next
+            else:
+                RandomStartHead.next.random = None
+            RandomStartHead = RandomStartHead.next.next
+            
+        #Nextpointer 변경
+        ClonedStartHead = StartHead.next
+        
+        while ClonedStartHead is not None:
+            if ClonedStartHead.next is not None:
+                ClonedStartHead.next = ClonedStartHead.next.next
+            else:
+                ClonedStartHead.next = None
+            ClonedStartHead = ClonedStartHead.next
+        return StartHead.next
