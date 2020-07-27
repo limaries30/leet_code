@@ -30,4 +30,16 @@ class Solution:
             head = head.next
         return head
 
-                
+
+
+class BetterSolution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        
+        pA = headA
+        pB = headB
+        
+        while pA is not pB:
+            pA = pA.next if pA is not None else headB
+            pB  = pB.next if pB is not None else headA
+        
+        return pA
