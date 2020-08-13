@@ -1,5 +1,8 @@
 class Solution:
-    
+    '''
+    179번
+    https://leetcode.com/problems/largest-number/submissions/
+    '''
     def largestNumber(self, nums) -> str:
         self.nums = nums
         pt = 0
