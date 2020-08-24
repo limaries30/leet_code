@@ -6,9 +6,8 @@ Given times, a list of travel times as directed edges times[i] = (u, v, w), wher
 
 Now, we send a signal from a certain node K. How long will it take for all nodes to receive the signal? If it is impossible, return -1.
 '''
-
 class Solution:
-    '''floyd-warshall'''
+    
     def networkDelayTime(self, times: List[List[int]], N: int, K: int) -> int:
         
         inf = float("inf") 
