@@ -11,7 +11,7 @@ class Solution:
     '''floyd-warshall'''
     def networkDelayTime(self, times: List[List[int]], N: int, K: int) -> int:
         
-        inf = 100000000
+        inf = float("inf") 
         ch = [[inf]*N for i in range(N)]
         for i in times:
             ch[i[0]-1][i[1]-1]=i[2]
