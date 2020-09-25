@@ -53,6 +53,48 @@ class Solution:
         return True
 
 
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+
+        """
+        Do not return anything, modify board in-place instead.
+        """
+
+        self.row = len(board)
+        self.col = len(board[0])
+
+        self.board = board
+        self.dfs(0, 0)
+
+    def dfs(self, i, j):
+        if i > self.row - 1:
+            return True
+        if self.board[i][j] == ".":
+            for k in range(1, 10):
+                self.board[i][j] = str(k)
+                if not self.isValidSudoku(self.board):
+                    self.board[i][j] = "."
+                else:
+                    next_i, next_j = self.getNext(i, j)
+                    if self.dfs(next_i, next_j):
+                        return True
+                    else:
+                        self.board[i][j] = "."
+            return False
+        else:
+            i, j = self.getNext(i, j)
+            if self.dfs(i, j):
+                return True
+            else:
+                return False
+
+    def getNext(self, i, j):
+        if j != self.col - 1:
+            return [i, j + 1]
+        else:
+            return [i + 1, 0]
+
+
 a = Solution()
 sudoku = [
     [".", ".", "9", "7", "4", "8", ".", ".", "."],
