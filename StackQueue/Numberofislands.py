@@ -30,3 +30,7 @@ class Solution:
             if self.grid[i_x][i_y]=='1' and not self.ch[i_x][i_y]:
                 self.setDFS(i)
                 
+
+
+https://us04web.zoom.us/j/8917114152?pwd=dmIxTTlVdHNqTWtISUdOZTVYV0pmZz09
+a2CgFX

@@ -47,9 +47,9 @@ class Solution:
         return x.cloned
 
 
-    
+
 class Solution:
-    
+    '''O(N)/O(1)'''
     def copyRandomList(self, head: 'Node') -> 'Node':
         
         StartHead = head
