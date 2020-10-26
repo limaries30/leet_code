@@ -27,13 +27,6 @@ class DLL:
         self.head.next.prev = node
         self.head.next = node
         node.prev = self.head
-        # if self.head.next:
-        #     self.head.next.prev = node
-        #     node.next = self.head.next
-        # else:
-        #     self.tail = node
-        # node.prev = self.head
-        # self.head.next = node
         self.size += 1
 
 
