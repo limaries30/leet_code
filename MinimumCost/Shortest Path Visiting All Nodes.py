@@ -51,24 +51,25 @@
 
 
 class Solution:
-    def shortestPathLength(self, graph):
-        memo, final, q, steps = (
-            set(),
-            (1 << len(graph)) - 1,
-            [(i, 1 << i) for i in range(len(graph))],
-            0,
-        )
-        while True:
-            new = []
-            for node, state in q:
-                if state == final:
-                    return steps
-                for v in graph[node]:
-                    if (state | 1 << v, v) not in memo:
-                        new.append((v, state | 1 << v))
-                        memo.add((state | 1 << v, v))
-            q = new
-            steps += 1
+    def shortestPathLength(self, graph: List[List[int]]) -> int:
+
+        if len(graph) == 1:
+            return 0
+
+        history = set()
+        num_nodes = len(graph)
+        queue = [(1 << i, i, 0) for i in range(num_nodes)]
+        destination = (1 << len(graph)) - 1
+
+        while len(queue) > 0:
+            current_path, current_node, steps = queue.pop(0)
+            for v in graph[current_node]:
+                next_path = current_path | (1 << v)
+                if next_path == destination:
+                    return steps + 1
+                if (next_path, v) not in history:
+                    history.add((next_path, v))
+                    queue.append((next_path, v, steps + 1))
 
 
 sol = [[2, 5, 7], [2, 4], [0, 1], [5], [5, 6, 1], [4, 10, 8, 0, 3], [4, 9], [0], [5], [6], [5]]
