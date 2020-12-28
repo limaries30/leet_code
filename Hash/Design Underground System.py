@@ -1,5 +1,6 @@
 '''
 https://leetcode.com/problems/design-underground-system/
+defaultdict 활용!
 '''
 class UndergroundSystem:
 
