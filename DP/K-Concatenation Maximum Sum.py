@@ -12,7 +12,7 @@ class Solution:
         if k==1:
             return max_sum_arr%MODULO
         if sum_arr<0:
-            return max(max_sum_arr,max_sum_arr_two)%MODULO
+            return max_sum_arr_two%MODULO
         else:
             return (max_sum_arr_two+(k-2)*sum_arr)%MODULO
         
