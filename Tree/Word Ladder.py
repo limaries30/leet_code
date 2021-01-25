@@ -1,5 +1,6 @@
 '''
 https://leetcode.com/problems/word-ladder/submissions/
+그래프를 만들면 더 좋을듯!
 '''
 class Solution:
     '''bi-directional bfs'''
