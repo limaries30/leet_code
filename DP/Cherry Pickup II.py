@@ -28,8 +28,6 @@ class Solution:
         for j in range(-1, 2):
             for i in range(-1, 2):
                 next_cherries = max(next_cherries, self.step(rx + 1, ry + i, lx + 1, ly + j))
-
-        # print(rx,ry,lx,ly,cherries,next_cherries)
         res = cherries + next_cherries
         self.memo[(rx, ry, lx, ly)] = res
         return res
